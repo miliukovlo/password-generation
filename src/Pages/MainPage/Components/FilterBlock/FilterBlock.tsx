@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import style from "./FilterBlock.module.css"
 import Input from '../../../../Components/Common/Input/Input';
 import Button from '../../../../Components/Common/Button/Button';
 
 interface filterBlockProps {
     value: string,
-    setValue: (value: string) => void
+    setValue: (value: string) => void,
+    setShowModal: (value: boolean) => void,
+    showModal: boolean
 }
 
 const FilterBlock: React.FC<filterBlockProps> = ({
     value,
-    setValue
+    setValue,
+    setShowModal,
 }) => {
 
+    const activeModal = useCallback(() => {
+        setShowModal(true)
+    },[setShowModal])
 
     return (
         <div className={style.filter__block}>
@@ -27,7 +33,7 @@ const FilterBlock: React.FC<filterBlockProps> = ({
                 <Button
                     text='Добавить новый пароль'
                     size='l'
-                    onClick={() => {console.log('Ку')}}
+                    onClick={activeModal}
                 />
             </div>
         </div>

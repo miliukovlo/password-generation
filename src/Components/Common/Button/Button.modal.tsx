@@ -7,14 +7,14 @@ interface ButtonProps {
     onClick: () => void
 }
 
-const Button: React.FC<ButtonProps> = React.memo(({
+const ButtonModal: React.FC<ButtonProps> = React.memo(({
     size,
     text,
     onClick
 }) => {
     return (
         <button
-            className={size === "m" ? `${style.size__m}  ${style.button}` : `${style.size__l} ${style.button}`}
+            className={size === "m" ? `${style.size__m_modal}  ${style.button}` : `${style.size__l_modal} ${style.button}`}
             onClick={onClick}
         >
             {text}
@@ -22,4 +22,4 @@ const Button: React.FC<ButtonProps> = React.memo(({
     );
 })
 
-export default Button;
+export default ButtonModal;

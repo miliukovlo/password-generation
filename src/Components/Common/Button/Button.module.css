@@ -12,10 +12,18 @@
 }
 
 .size__m {
-    width: 60%;
+    width: 30%;
     height: 15%;
 }
 .size__l {
     width: 40%;
     height: 40%;
+}
+.size__m_modal {
+    width: 80%;
+    height: 10%;
+}
+.size__l_modal {
+    width: 80%;
+    height: 15%;
 }

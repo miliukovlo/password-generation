@@ -5,9 +5,11 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../Contexts/reducers/store';
 import PasswordsList from './Components/PasswordsList/PasswordsList';
 import { passwordInterface } from '../../Interfaces/passwordsInterface';
+import ModalBlock from './Components/ModalBlock/ModalBlock';
 
 const MainPage: React.FC = () => {
     const [filterValue, setFilterValue] = useState<string>("")
+    const [showModal, setShowModal] = useState<boolean>(false)
     const passwords: passwordInterface[] = useSelector((state: RootState) => state.passwords.passwords as passwordInterface[])
 
     return (
@@ -15,10 +17,16 @@ const MainPage: React.FC = () => {
             <FilterBlock
                 value={filterValue}
                 setValue={setFilterValue}
+                setShowModal={setShowModal}
+                showModal={showModal}
             />
             <PasswordsList
                 filterValue={filterValue}
                 passwords={passwords}
+            />
+            <ModalBlock
+                showModal={showModal}
+                setShowModal={setShowModal}
             />
         </div>
     );

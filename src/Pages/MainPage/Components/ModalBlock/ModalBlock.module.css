@@ -1,0 +1,23 @@
+.wrapper__show {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+}
+.wrapper__hidden {
+    display: none;
+}
+.modal__block {
+    width: 70%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+}
