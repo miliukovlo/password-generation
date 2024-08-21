@@ -1,0 +1,14 @@
+.size__m {
+    border: 2px solid var(--secondary-color);
+    text-indent: 10px;
+    border-radius: 10px;
+    width: 60%;
+    height: 15%;
+}
+.size__l {
+    border: 2px solid var(--secondary-color);
+    text-indent: 10px;
+    border-radius: 10px;
+    width: 40%;
+    height: 40%;
+}

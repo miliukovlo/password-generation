@@ -1,0 +1,21 @@
+.button {
+    transition-duration: 0.4s;
+    border: 2px solid var(--secondary-color);
+    text-indent: 10px;
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+    color: white;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: var(--primary-color);
+}
+
+.size__m {
+    width: 60%;
+    height: 15%;
+}
+.size__l {
+    width: 40%;
+    height: 40%;
+}

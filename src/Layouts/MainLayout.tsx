@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 import Footer from '../Components/Footer/Footer';
 import style from "./main.layout.module.css"
 
-const MainLayout = () => {
+const MainLayout: React.FC = () => {
     return (
         <>
             <Header/>
