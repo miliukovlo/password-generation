@@ -4,12 +4,12 @@ import style from "./Input.module.css"
 interface InputProps {
     size: "m" | "l",
     type: string,
-    value: string | number,
-    setValue: (value: string ) => void | ((value: number ) => void),
+    value: string,
+    setValue: (value: string) => void,
     placeholder: string
 }
 
-const Input: React.FC<InputProps> = React.memo(({
+const InputGeneration: React.FC<InputProps> = React.memo(({
     size,
     type, 
     value,
@@ -19,7 +19,7 @@ const Input: React.FC<InputProps> = React.memo(({
     return (
     <input 
         type={type} 
-        className={size === "m" ? style.size__m : style.size__l}
+        className={size === "m" ? style.size__m_generation : style.size__l_generation}
         value={value}
         placeholder={placeholder}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setValue(e.target.value)}}
@@ -27,5 +27,5 @@ const Input: React.FC<InputProps> = React.memo(({
     )
 })
 
-export default Input;
+export default InputGeneration;
 

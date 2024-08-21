@@ -32,7 +32,7 @@ const PasswordBlock: React.FC<PasswordBlockProps> = ({
     return (
         <div className={style.password__block}>
             {error ?
-                <h1 className={fonts.error__show}>Не удалось удалить пароль!</h1>
+                <p className={fonts.error__show}>Не удалось удалить пароль!</p>
             :
                 <>
                     <h2 className={fonts.title__secondary}>Сервис: {service}</h2>

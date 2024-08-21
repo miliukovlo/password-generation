@@ -40,7 +40,6 @@ const ModalBlock: React.FC<ModalBlockProps> = ({
             setError(false)
             setTimeout(() => {
                 let isSuccessfully = Math.floor(Math.random() * 2) + 1
-                console.log(isSuccessfully)
                 setIsLoading(false)
                 if (isSuccessfully % 2 === 0) {
                     setServerError(false)

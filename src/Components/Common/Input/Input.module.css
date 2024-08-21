@@ -26,3 +26,17 @@
     width: 80%;
     height: 15%;
 }
+.size__m_generation {
+    border: 2px solid var(--secondary-color);
+    text-indent: 10px;
+    border-radius: 10px;
+    width: 80%;
+    height: 10%;
+}
+.size__l_generation {
+    border: 2px solid var(--secondary-color);
+    text-indent: 10px;
+    border-radius: 10px;
+    width: 80%;
+    height: 15%;
+}
