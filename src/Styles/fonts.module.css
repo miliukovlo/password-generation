@@ -4,3 +4,13 @@
     color: white;
     letter-spacing: 0.5rem;
 }
+.title__secondary {
+    font-size: 2vh;
+    text-align: center;
+    color: white;
+}
+.common__text {
+    font-size: 2vh;
+    text-align: center;
+    color: white;
+}

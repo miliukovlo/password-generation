@@ -8,7 +8,7 @@ import { passwordInterface } from '../../Interfaces/passwordsInterface';
 
 const MainPage: React.FC = () => {
     const [filterValue, setFilterValue] = useState<string>("")
-    const passwords: passwordInterface[] = useSelector((state: RootState) => state.passwords.passwords)
+    const passwords: passwordInterface[] = useSelector((state: RootState) => state.passwords.passwords as passwordInterface[])
 
     return (
         <div className={style.content}>

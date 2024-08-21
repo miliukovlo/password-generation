@@ -7,7 +7,7 @@ interface PasswordsListProps {
     passwords: passwordInterface[]
 }
 
-const PasswordsList: React.FC<PasswordsListProps> = ({
+const PasswordsList: React.FC<PasswordsListProps> = React.memo(({
     passwords
 }: PasswordsListProps) => {
     return (
@@ -24,6 +24,6 @@ const PasswordsList: React.FC<PasswordsListProps> = ({
         }
         </div>
     );
-}
+})
 
 export default PasswordsList;

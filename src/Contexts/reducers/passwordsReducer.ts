@@ -13,11 +13,11 @@ export const passwordsReducer = (state = defaultPasswords, action: passwordActio
         case ADD_PASSWORD:
             return {...state, passwords: [...state.passwords, action.payload]}
         case REMOVE_PASSWORD:
-            return {...state, passwords: state.passwords.filter(password => password.id !== action.id)}
+            return {...state, passwords: state.passwords.filter(password => password.id !== action.payload)}
         default:
             return state
     }
 }
 
 export const addPassword = (payload: passwordInterface) => ({type: ADD_PASSWORD, payload})
-export const removePassword = (id: number) => ({type: REMOVE_PASSWORD, id})
+export const removePassword = (payload: number) => ({type: REMOVE_PASSWORD, payload})
