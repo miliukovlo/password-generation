@@ -17,6 +17,7 @@ const MainPage: React.FC = () => {
                 setValue={setFilterValue}
             />
             <PasswordsList
+                filterValue={filterValue}
                 passwords={passwords}
             />
         </div>
