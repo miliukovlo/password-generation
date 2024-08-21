@@ -17,34 +17,49 @@ const ModalBlock: React.FC<ModalBlockProps> = ({
     setShowModal
 }: ModalBlockProps) => {
 
-    const [service, setService] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
+    const [service, setService] = useState<string>("")
+    const [password, setPassword] = useState<string>("")
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+    const [serverError, setServerError] = useState<boolean>(false)
     const [error, setError] = useState<boolean>(false)
     const dispatch = useDispatch()
     const passwordId = GetId()
 
     const handleCloseModal = (): void => {
-        setShowModal(false);
-    };
+        setShowModal(false)
+    }
 
     const handleModalClick = (e: React.MouseEvent<HTMLDivElement>): void => {
-        e.stopPropagation(); 
-    };
+        e.stopPropagation();
+    }
 
     const handleAddPassword = useCallback(() => {
         if (password !== "" && service !== "") {
-            dispatch(addPassword({
-                password: password,
-                service: service,
-                id: passwordId
-            }))
-            setService("")
-            setPassword("")
+            setIsLoading(true)
+            setServerError(false)
             setError(false)
-            setShowModal(false)
-        } else {
-            setError(true)
-        }
+            setTimeout(() => {
+                let isSuccessfully = Math.floor(Math.random() * 2) + 1
+                console.log(isSuccessfully)
+                setIsLoading(false)
+                if (isSuccessfully % 2 === 0) {
+                    setServerError(false)
+                        dispatch(addPassword({
+                            password: password,
+                            service: service,
+                            id: passwordId
+                        }))
+                        setService("")
+                        setPassword("")
+                        setError(false)
+                        setShowModal(false)
+                } else {
+                    setServerError(true)
+                }
+        }, 2000)
+    } else {
+        setError(true)
+    }
     }, [dispatch, password, service, passwordId, setShowModal])
 
     return (
@@ -69,10 +84,12 @@ const ModalBlock: React.FC<ModalBlockProps> = ({
                     size='l'
                     onClick={handleAddPassword}
                 />
+                <p className={isLoading ? fonts.loading__show : fonts.loading__hidden}>Загрузка...</p>
+                <p className={serverError ? fonts.error__show : fonts.error__hidden}>Не удалось создать пароль, попробуйте позже.</p>
                 <p className={error ? fonts.error__show : fonts.error__hidden}>Вы не ввели данные!</p>
             </div>
         </div>
-    );
+    )
 }
 
 export default ModalBlock;

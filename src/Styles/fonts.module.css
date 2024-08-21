@@ -26,3 +26,24 @@
     color: transparent;
     transition-duration: 0.4s;
 }
+.loading__show {
+    font-size: 2vh;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+    transition-duration: 0.4s;
+    animation: loading-animation 2s ease-in 1s infinite alternate;
+}
+.loading__hidden {
+    font-size: 2vh;
+    text-align: center;
+    transition-duration: 0.4s;
+    color: transparent;
+}
+
+@keyframes loading-animation {
+    from {
+        color: rgba(255, 255, 255, 1);
+    } to {
+        color: rgba(255, 255, 255, 0.5);
+    }
+}
