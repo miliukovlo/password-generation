@@ -40,6 +40,21 @@
     color: transparent;
 }
 
+.link {
+    text-decoration: none;
+    color: white;
+    font-size: 2vh;
+    border-bottom: 2px solid transparent;
+    padding: 5px;
+    transition-duration: 0.4s;
+}
+.link:hover {
+    border-bottom: 2px solid white;
+}
+.link:visited {
+    color: white;
+}
+
 @keyframes loading-animation {
     from {
         color: rgba(255, 255, 255, 1);

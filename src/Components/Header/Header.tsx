@@ -1,11 +1,13 @@
 import React from 'react';
 import style from "./Header.module.css"
 import fonts from "../../Styles/fonts.module.css"
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
         <header className={style.header}>
-            <h1 className={fonts.title__primary}>Aerokod</h1>
+            <Link className={fonts.link} to='/'>Главная</Link>
+            <Link className={fonts.link} to='/generation'>Генерация пароля</Link>
         </header>
     );
 }

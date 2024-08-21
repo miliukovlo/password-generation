@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import style from "./PasswordBlock.module.css"
 import fonts from "../../../../../../Styles/fonts.module.css"
+import DeleteButton from './Components/DeleteButton/DeleteButton';
+import CopyButton from './Components/CopyButton/CopyButton';
 
 interface PasswordBlockProps {
     service: string,
@@ -13,10 +15,37 @@ const PasswordBlock: React.FC<PasswordBlockProps> = ({
     password,
     id
 }: PasswordBlockProps) => {
+
+    const [error, setError] = useState<boolean>(false)
+
+    useEffect(() => {
+        if (error) {
+            const timer = setTimeout(() => {
+                setError(false);
+            }, 2000);
+    
+            return () => clearTimeout(timer);
+        }
+    }, [error]);
+    
+
     return (
         <div className={style.password__block}>
-            <h2 className={fonts.title__secondary}>Сервис: {service}</h2>
-            <p className={fonts.common__text}>Пароль: {password}</p>
+            {error ?
+                <h1 className={fonts.error__show}>Не удалось удалить пароль!</h1>
+            :
+                <>
+                    <h2 className={fonts.title__secondary}>Сервис: {service}</h2>
+                    <p className={fonts.common__text}>Пароль: {password}</p>
+                    <DeleteButton
+                        setDelete={setError}
+                        id={id}
+                    />
+                    <CopyButton
+                        text={password}
+                    />
+                </>
+            }
         </div>
     );
 }
