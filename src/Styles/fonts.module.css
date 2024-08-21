@@ -14,3 +14,15 @@
     text-align: center;
     color: white;
 }
+.error__show {
+    font-size: 2vh;
+    text-align: center;
+    color: red;
+    transition-duration: 0.4s;
+}
+.error__hidden {
+    font-size: 2vh;
+    text-align: center;
+    color: transparent;
+    transition-duration: 0.4s;
+}

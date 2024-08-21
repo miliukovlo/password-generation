@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import style from "./ModalBlock.module.css";
+import fonts from "../../../../Styles/fonts.module.css"
 import ButtonModal from '../../../../Components/Common/Button/Button.modal';
 import InputModal from '../../../../Components/Common/Input/Input.modal';
 import { GetId } from '../../../../Hooks/GetId';
@@ -18,6 +19,7 @@ const ModalBlock: React.FC<ModalBlockProps> = ({
 
     const [service, setService] = useState<string>("");
     const [password, setPassword] = useState<string>("");
+    const [error, setError] = useState<boolean>(false)
     const dispatch = useDispatch()
     const passwordId = GetId()
 
@@ -30,12 +32,19 @@ const ModalBlock: React.FC<ModalBlockProps> = ({
     };
 
     const handleAddPassword = useCallback(() => {
-        dispatch(addPassword({
-            password: password,
-            service: service,
-            id: passwordId
-        }))
-        setShowModal(false)
+        if (password !== "" && service !== "") {
+            dispatch(addPassword({
+                password: password,
+                service: service,
+                id: passwordId
+            }))
+            setService("")
+            setPassword("")
+            setError(false)
+            setShowModal(false)
+        } else {
+            setError(true)
+        }
     }, [dispatch, password, service, passwordId, setShowModal])
 
     return (
@@ -60,6 +69,7 @@ const ModalBlock: React.FC<ModalBlockProps> = ({
                     size='l'
                     onClick={handleAddPassword}
                 />
+                <p className={error ? fonts.error__show : fonts.error__hidden}>Вы не ввели данные!</p>
             </div>
         </div>
     );

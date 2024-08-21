@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
+    min-height: 180px;
 }
 .filter__border {
     height: 100%;
